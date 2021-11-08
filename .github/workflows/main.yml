@@ -5,6 +5,7 @@ on:
   push
 env:
   BUCKET_NAME : "zaidawsbucket"
+  AWS_REGION : "us-east-1"
 # permission can be added at job level or workflow level    
 permissions:
   id-token: write
@@ -20,6 +21,7 @@ jobs:
         with:
           role-to-assume: arn:aws:iam::1234567890:role/example-role
           role-session-name: samplerolesession
+          aws-region: ${{ env.AWS_REGION }}
       # Upload a file to AWS s3
       - name:  Copy repo to s3
         run: |
