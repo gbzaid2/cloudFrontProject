@@ -7,6 +7,9 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: write
     steps:
       - name: Checkout
         uses: actions/checkout@v1
@@ -20,6 +23,3 @@ jobs:
 
       - name: Deploy static site to S3 bucket
         run: aws s3 sync ./public/ s3://zaidawsbucket --delete
-permissions:
-  id-token: write
-  contents: write
