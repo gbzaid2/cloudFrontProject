@@ -17,7 +17,7 @@ jobs:
       - name: Git clone the repository
         uses: actions/checkout@v1
       - name: configure aws credentials
-        uses: aws-actions/configure-aws-credentials@v1
+        uses: aws-actions/configure-aws-credentials@master
         with:
           role-to-assume: arn:aws:iam::816840771105:role/awscloudfront
           role-session-name: samplerolesession
